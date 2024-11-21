@@ -1,6 +1,6 @@
 # clinica-atual
 Descrição
-   O site descrito no código é para a Clínica Tec Saúde, uma organização que oferece cuidados integrados e humanizados para idosos. Ele é bem estruturado, com 
+   O site descrito no código é para a Clínica Tech Saúde, uma organização que oferece cuidados integrados e humanizados para idosos. Ele é bem estruturado, com 
    funcionalidades interativas e um design responsivo, voltado para facilitar o acesso a informações sobre serviços médicos e outros produtos relacionados à saúde 
    e bem-estar.
 Estrutura e Funcionalidades
