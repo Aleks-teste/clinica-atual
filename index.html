@@ -8,14 +8,14 @@
     <style>
         /* Estilo para ocultar todas as seções por padrão */
         .section {
-            display: none;
+            display:flex;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
 
         /* Exibir apenas a seção ativa */
         .section.active {
-            display: block;
+            display: flex;
             opacity: 1;
         }
 
@@ -36,10 +36,11 @@
             width: 50%;
             max-width: 600px;
         }
+        
 
         /* Estilo ajustado para a seção Emergência */
         .emergency-section {
-            display: flex;
+            display: block;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -75,6 +76,7 @@
             background-color: #28a745;
             color: #fff;
         }
+        
     </style>
     <script>
         function showSection(sectionId) {
@@ -122,7 +124,7 @@
         </section>
 
         <!-- Página Emergência -->
-        <section class="emergency-section section" id="emergency">
+        <section class="emergency-section active" id="emergency">
             <h1>Emergência</h1>
             <p>Se estiver enfrentando uma emergência, entre em contato imediatamente:</p>
             <p><strong>Telefone de Emergência:</strong> <span style="color: #d9534f;">19 9 9999-9999</span></p>
@@ -130,61 +132,79 @@
         </section>
 
        <!-- Outras seções permanecem inalteradas -->
-<!-- Página Consulta -->
-<section class="consult-section section" id="consult">
-    <h1>Agendamento de Consulta</h1>
-    <form>
-        <!-- Especialidade -->
-        <label for="specialty">Especialidade:</label>
-        <select id="specialty" required>
-            <option value="">Selecione</option>
-            <option value="cardiologia">Cardiologia</option>
-            <option value="geriatria">Geriatria</option>
-            <option value="dermatologia">Dermatologia</option>
-            <option value="ginecologia">Ginecologia</option>
-            <!-- Adicione outras especialidades conforme necessário -->
-        </select>
+        <!-- Página Consulta -->
+        <section class="consult-section section" id="consult">
+            <h1>Agendamento de Consulta</h1>
+        <form>
+            <!-- Especialidade -->
+            <label for="especialidade">Especialidade:</label>
+            <select id="especialidade" required>
+                <option value="">Selecione</option>
+                <option value="clinico">Clínico Geral</option>
+                <option value="cardiologia">Cardiologia</option>
+                <option value="geriatria">Geriatria</option>
+                <option value="dermatologia">Dermatologia</option>
+                <option value="ginecologia">Ginecologia</option>
+                <option value="pneumologia">Pneumologia</option>
+            
+                <!-- Adicione outras especialidades conforme necessário -->
+            </select>
 
-        <!-- Nome Completo -->
-        <label for="name">Nome Completo:</label>
-        <input type="text" id="name" required>
+            <!-- Nome Completo -->
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" required>
 
-        <!-- Data de Nascimento -->
-        <label for="dob">Data de Nascimento:</label>
-        <input type="date" id="dob" required>
+            <!-- Data de Nascimento -->
+            <label for="datanasc">Data de Nascimento:</label>
+            <input type="date" id="datanasc" required>
 
-        <!-- Telefone -->
-        <label for="phone">Telefone:</label>
-        <input type="tel" id="phone" required>
-
-        <!-- E-mail -->
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" required>
-
-        <!-- Data e Horário Preferido -->
-        <label for="preferred-date">Data e Hora Preferidas:</label>
-        <input type="datetime-local" id="preferred-date">
-
-        <!-- Motivo da Consulta -->
-        <label for="message">Motivo da Consulta:</label>
-        <textarea id="message" rows="4" placeholder="Descreva brevemente o motivo da consulta"></textarea>
-
-        <!-- Plano de Saúde (opcional) -->
-        <label for="insurance">Plano de Saúde:</label>
-        <input type="text" id="insurance" placeholder="Operadora e número da carteirinha (se aplicável)">
-
-        <!-- Termos e Condições -->
-        <div>
-            <label for="privacy-policy">
-                <input type="checkbox" id="privacy-policy" required>
-                Aceito os <a href="/termos-de-uso">termos de uso</a> e a <a href="/politica-de-privacidade">política de privacidade</a>.
+            <!-- Sexo-->
+            <label for="sexo">Sexo</label>
+            <div>
+            <label>
+                Masculino
+            <input type="radio" name="genero" id="masculino" value="Masculino">
             </label>
-        </div>
+            </div>
+            <div>
+            <label>
+                Feminino
+            <input type="radio" name="genero" id="feminino" value="feminino">
+            </label>
+            </div>
 
-        <!-- Botão de envio -->
-        <button type="submit">Enviar</button>
-    </form>
-</section>
+            <!-- Telefone -->
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" required>
+
+            <!-- E-mail -->
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" required>
+
+            <!-- Data e Horário Preferido -->
+            <label for="datahora">Data e Hora Preferidas:</label>
+            <input type="datetime" id="datahora">
+
+            <!-- Motivo da Consulta -->
+            <label for="motivo">Motivo da Consulta:</label>
+            <textarea id="motivo" rows="4" placeholder="Descreva brevemente o motivo da consulta"></textarea>
+
+            <!-- Plano de Saúde (opcional) -->
+            <label for="planosaude">Plano de Saúde:</label>
+            <input type="text" id="planosaude" placeholder="Número da carteirinha">
+
+            <!-- Termos e Condições -->
+            <div>
+                <label for="privacy-policy">
+                    <input type="checkbox" id="privacy-policy" required>
+                    Aceito os <a href="/termos-de-uso">termos de uso</a> e a <a href="/politica-de-privacidade">política de privacidade</a>.
+                </label>
+            </div>
+
+            <!-- Botão de envio -->
+            <button type="submit">Enviar</button>
+        </form>
+        </section>
 
 
         <!-- Página Produtos -->
@@ -214,7 +234,7 @@
             </div>
         </section>
         <!-- Página Sobre Nós -->
-        <section class="about-section section" id="about">
+        <main class="about-section section" id="about">
             <h1>Sobre Nós</h1>
             <div class="grid">
                 <div class="grid-item">
@@ -238,7 +258,7 @@
                     <p>Viagens planejadas com segurança.</p>
                 </div>
             </div>
-        </section>
+        </main>
         <!-- Página Contato -->
         <section class="contact-section section" id="contact">
             <h1>Fale Conosco</h1>
@@ -270,9 +290,10 @@
         </section>
         
     </main>
-
     <footer>
-        <p>Clínica Tech Saúde © 2024. Todos os direitos reservados.</p>
+        <div class="rodape">
+            <p>Clínica Tech Saúde © 2024. Todos os direitos reservados.</p>
+        </div>
     </footer>
 </body>
 </html>
