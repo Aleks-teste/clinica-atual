@@ -1,70 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Função para alternar a exibição das seções
     function showSection(sectionId) {
+        // Remove a classe 'active' de todas as seções
         const sections = document.querySelectorAll('.section');
         sections.forEach(section => {
             section.classList.remove('active');
         });
 
+        // Adiciona a classe 'active' apenas à seção solicitada
         const targetSection = document.getElementById(sectionId);
         if (targetSection) {
             targetSection.classList.add('active');
         }
     }
 
-    // Função para carregar os produtos da API (exemplo com JSON local)
-    function loadProducts() {
-        const productsContainer = document.getElementById('products-container');
-
-        // Exemplo de produtos simulados (poderia ser uma API real com fetch)
-        const products = [
-            { name: "Cadeira de Descanso", image: "imagens/cadeira.jpg", description: "Conforto para o seu dia." },
-            { name: "Fitoterápicos", image: "imagens/fitoterápicos.jpg", description: "Produtos naturais para saúde." },
-            { name: "Relógios Médicos", image: "imagens/relógio.jpg", description: "Praticidade e controle." },
-            { name: "Pacotes de Passeios", image: "imagens/passeios.jpg", description: "Atividades externas para lazer." }
-        ];
-
-        // Limpar o container antes de injetar os novos produtos
-        productsContainer.innerHTML = '';
-
-        // Adicionar os produtos ao container
-        products.forEach(product => {
-            const productItem = document.createElement('div');
-            productItem.classList.add('grid-item');
-
-            productItem.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <h2>${product.name}</h2>
-                <p>${product.description}</p>
-            `;
-
-            productsContainer.appendChild(productItem);
-        });
-    }
-
-    // Chamar a função para carregar os produtos apenas na página produtos.html
-    if (window.location.pathname.includes('produtos.html')) {
-        loadProducts();
-    }
-
-    // Função para exibir/ocultar o menu hamburguer em dispositivos móveis
-    const hamburger = document.getElementById('hamburger-menu');
-    const nav = document.querySelector('nav ul');
-
-    hamburger.addEventListener('click', function() {
-        nav.classList.toggle('active');
-    });
-
-    // Adicionar listeners para navegação
+    // Adicionar listeners de evento para as opções de navegação
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', function (event) {
+            // Previne o comportamento padrão de links
             event.preventDefault();
-            const targetSectionId = link.getAttribute('href').split('.')[0];
+
+            // Obtenha o ID da seção a ser exibida a partir do atributo 'onclick'
+            const targetSectionId = link.getAttribute('onclick').match(/showSection\('([^']+)'\)/)[1];
             showSection(targetSectionId);
         });
     });
 
-    // Definir a seção inicial
+    // Definir a seção inicial como 'home'
     showSection('home');
 });
