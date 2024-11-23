@@ -12,11 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Função para carregar os produtos da API (exemplo com JSON local)
+    // Função para carregar os produtos dinamicamente
     function loadProducts() {
         const productsContainer = document.getElementById('products-container');
 
-        // Exemplo de produtos simulados (poderia ser uma API real com fetch)
         const products = [
             { name: "Cadeira de Descanso", image: "imagens/cadeira.jpg", description: "Conforto para o seu dia." },
             { name: "Fitoterápicos", image: "imagens/fitoterápicos.jpg", description: "Produtos naturais para saúde." },
@@ -24,13 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
             { name: "Pacotes de Passeios", image: "imagens/passeios.jpg", description: "Atividades externas para lazer." }
         ];
 
-        // Limpar o container antes de injetar os novos produtos
+        // Limpar o container antes de adicionar os produtos
         productsContainer.innerHTML = '';
 
-        // Adicionar os produtos ao container
         products.forEach(product => {
             const productItem = document.createElement('div');
-            productItem.classList.add('grid-item');
+            productItem.classList.add('product-item');
 
             productItem.innerHTML = `
                 <img src="${product.image}" alt="${product.name}">
@@ -42,16 +40,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Chamar a função para carregar os produtos na página de produtos
-    if (document.getElementById('products-container')) {
-        loadProducts();
-    }
+    // Carregar os produtos
+    loadProducts();
 
-    // Implementar o menu hambúrguer
-    const hamburger = document.getElementById('hamburger');
-    const menu = document.getElementById('menu');
-
-    hamburger.addEventListener('click', function () {
-        menu.classList.toggle('active');
+    // Adicionar funcionalidade de navegação para o menu hamburguer
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    hamburgerMenu.addEventListener('click', () => {
+        document.querySelector('nav ul').classList.toggle('show');
     });
 });
+
