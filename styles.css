@@ -1,79 +1,93 @@
-/* Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 header {
-  background-color: #333;
-  color: white;
-  padding: 10px;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header .logo h1 {
-  margin: 0;
+nav ul {
+    list-style-type: none;
+    display: flex;
 }
 
-header nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
+nav ul li {
+    margin: 0 15px;
 }
 
-header nav ul li {
-  margin-right: 20px;
-}
-
-header nav ul li a {
-  color: white;
-  text-decoration: none;
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
 }
 
 .hamburger {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
+    display: none;
+    cursor: pointer;
 }
 
-/* Conteúdo */
-.content {
-  padding: 20px;
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
 }
 
 footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
 }
 
-/* Responsivo */
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+}
+
 @media (max-width: 768px) {
-  header nav ul {
-      display: none;
-      flex-direction: column;
-      margin-top: 10px;
-  }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: #333;
+        width: 100%;
+    }
 
-  header nav ul.active {
-      display: block;
-  }
+    nav ul.show {
+        display: flex;
+    }
 
-  .hamburger {
-      display: block;
-  }
+    .hamburger {
+        display: block;
+    }
 }
 
-/* Produtos */
-#products-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.grid-item img {
-  width: 100%;
-  height: auto;
-}
