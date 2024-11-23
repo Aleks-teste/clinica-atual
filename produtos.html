@@ -3,42 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
+    <title>Produtos - Seu Site</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Cabeçalho -->
     <header>
         <div class="logo">
-            <h1>Meu Site</h1>
+            <img src="logo.png" alt="Logo">
         </div>
         <nav>
-            <ul id="menu">
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="emergencia.html">Emergência</a></li>
-                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="sobre-nos.html">Sobre Nós</a></li>
                 <li><a href="produtos.html">Produtos</a></li>
                 <li><a href="consulta.html">Consulta</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span>&#9776;</span>
-            </div>
         </nav>
+        <div class="hamburger" id="hamburger-menu">
+            <span></span><span></span><span></span>
+        </div>
     </header>
 
-    <!-- Conteúdo Principal -->
-    <div class="content">
-        <section id="products">
-            <h2>Produtos</h2>
-            <div id="products-container"></div>
-        </section>
-    </div>
+    <!-- Conteúdo da página Produtos -->
+    <section id="produtos" class="section active">
+        <h1>Produtos</h1>
+        <div id="products-container" class="products-container"></div>
+    </section>
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Seu Site. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
